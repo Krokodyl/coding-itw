@@ -1,5 +1,10 @@
 package arrays;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ArrayExamples {
 
     /**
@@ -16,5 +21,15 @@ public class ArrayExamples {
         int n = numbers.length+1;
         int expectedSum = n*(n+1)/2;
         return expectedSum-sum;
+    }
+
+    static boolean findSumOfTwo(int[] numbers, int sum) {
+        Set<Integer> complements = new HashSet<>(); 
+        for (int n : numbers) {
+            int complement = sum-n;
+            if (complements.contains(n)) return true;
+            else complements.add(complement);
+        }
+        return false;
     }
 }
